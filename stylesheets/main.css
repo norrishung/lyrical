@@ -1,0 +1,331 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* line 6, ../sass/_reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 27, ../sass/_reset.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 31, ../sass/_reset.scss */
+body {
+  line-height: 1;
+}
+
+/* line 34, ../sass/_reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 37, ../sass/_reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 40, ../sass/_reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 45, ../sass/_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 7, ../sass/main.scss */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 50, ../sass/main.scss */
+html {
+  font-size: 10px;
+  font-family: "Helvetica";
+}
+
+/* line 54, ../sass/main.scss */
+body {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+  -moz-transition: -moz-transform 0.2s ease-out;
+  -o-transition: -o-transform 0.2s ease-out;
+  -webkit-transition: -webkit-transform 0.2s ease-out;
+  transition: transform 0.2s ease-out;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+/* line 65, ../sass/main.scss */
+body.nav-open {
+  -moz-transform: translateX(300px);
+  -ms-transform: translateX(300px);
+  -webkit-transform: translateX(300px);
+  transform: translateX(300px);
+}
+@media only screen and (min-width: 768px) {
+  /* line 65, ../sass/main.scss */
+  body.nav-open {
+    -moz-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+}
+
+/* line 73, ../sass/main.scss */
+.song-list, .song-container {
+  padding: 40px;
+  padding-top: 40px;
+}
+
+/* line 78, ../sass/main.scss */
+.song-list {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  -moz-transform: translateX(-300px);
+  -ms-transform: translateX(-300px);
+  -webkit-transform: translateX(-300px);
+  transform: translateX(-300px);
+  width: 300px;
+  background-color: #fafafa;
+  border-right: 1px solid #eee;
+  font-size: 1.2rem;
+}
+@media only screen and (min-width: 768px) {
+  /* line 78, ../sass/main.scss */
+  .song-list {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex: 0 0 300px;
+    flex: 0 0 300px;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    z-index: 1;
+    position: static;
+    -moz-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+}
+/* line 97, ../sass/main.scss */
+.song-list header {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  margin-bottom: 2em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid #555;
+}
+/* line 104, ../sass/main.scss */
+.song-list header h1 {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+/* line 111, ../sass/main.scss */
+.song-list header .button-add-song {
+  font-family: "Helvetica";
+  text-decoration: none;
+  border: 1px solid #555;
+  padding: .3em .5em;
+  text-transform: uppercase;
+  font-size: 1rem;
+  -webkit-flex-grow: 0;
+  flex-grow: 0;
+}
+/* line 40, ../sass/main.scss */
+.song-list header .button-add-song:visited {
+  color: inherit;
+}
+/* line 43, ../sass/main.scss */
+.song-list header .button-add-song:hover {
+  color: inherit;
+  background-color: #fafafa;
+}
+/* line 117, ../sass/main.scss */
+.song-list a {
+  text-decoration: none;
+  color: #333;
+}
+/* line 121, ../sass/main.scss */
+.song-list ul {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  padding-top: 2em;
+  overflow: auto;
+}
+/* line 125, ../sass/main.scss */
+.song-list ul li {
+  margin-bottom: 1em;
+}
+/* line 127, ../sass/main.scss */
+.song-list ul li .title {
+  font-weight: 600;
+}
+
+/* line 134, ../sass/main.scss */
+.song-container {
+  width: 100%;
+  font-family: "Georgia";
+  font-size: 1.6rem;
+  text-align: center;
+  padding-top: 6em;
+  padding-bottom: 6em;
+  overflow: auto;
+}
+@media only screen and (min-width: 768px) {
+  /* line 134, ../sass/main.scss */
+  .song-container {
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+  }
+}
+/* line 146, ../sass/main.scss */
+.song-container header {
+  overflow: auto;
+  padding-bottom: 2em;
+  margin-bottom: 2em;
+}
+/* line 150, ../sass/main.scss */
+.song-container header .button-show-nav {
+  font-family: "Helvetica";
+  text-decoration: none;
+  border: 1px solid #555;
+  padding: .3em .5em;
+  text-transform: uppercase;
+  font-size: 1rem;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+/* line 40, ../sass/main.scss */
+.song-container header .button-show-nav:visited {
+  color: inherit;
+}
+/* line 43, ../sass/main.scss */
+.song-container header .button-show-nav:hover {
+  color: inherit;
+  background-color: #fafafa;
+}
+@media only screen and (min-width: 768px) {
+  /* line 150, ../sass/main.scss */
+  .song-container header .button-show-nav {
+    display: none;
+  }
+}
+/* line 164, ../sass/main.scss */
+.song-container h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: .5em;
+  font-style: italic;
+}
+/* line 170, ../sass/main.scss */
+.song-container .artist {
+  font-family: "Helvetica";
+  font-size: 1.4rem;
+  margin-bottom: 1em;
+}
+/* line 172, ../sass/main.scss */
+.song-container .artist:before {
+  content: 'By ';
+}
+/* line 178, ../sass/main.scss */
+.song-container .tuning {
+  font-family: "Helvetica";
+  text-transform: uppercase;
+  color: #aaa;
+  letter-spacing: .1em;
+  font-weight: 300;
+  font-size: 1.4rem;
+}
+/* line 187, ../sass/main.scss */
+.song-container .lyrics p {
+  margin-bottom: .5em;
+}
+/* line 193, ../sass/main.scss */
+.song-container h2[contenteditable="true"], .song-container .artist[contenteditable="true"], .song-container .tuning[contenteditable="true"], .song-container .lyrics[contenteditable="true"] {
+  -moz-transition: opacity 0.2s ease-out;
+  -o-transition: opacity 0.2s ease-out;
+  -webkit-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+  opacity: .5;
+}
+/* line 196, ../sass/main.scss */
+.song-container h2[contenteditable="true"]:focus, .song-container h2[contenteditable="true"]:active, .song-container .artist[contenteditable="true"]:focus, .song-container .artist[contenteditable="true"]:active, .song-container .tuning[contenteditable="true"]:focus, .song-container .tuning[contenteditable="true"]:active, .song-container .lyrics[contenteditable="true"]:focus, .song-container .lyrics[contenteditable="true"]:active {
+  outline: none;
+  border: none;
+  opacity: 1;
+}
+/* line 204, ../sass/main.scss */
+.song-container .actions {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+/* line 208, ../sass/main.scss */
+.song-container .actions .button-confirm-song, .song-container .actions .button-cancel-song, .song-container .actions .button-delete-song, .song-container .actions .button-edit-song {
+  font-family: "Helvetica";
+  text-decoration: none;
+  border: 1px solid #555;
+  padding: .3em .5em;
+  text-transform: uppercase;
+  font-size: 1rem;
+  float: left;
+  margin-left: 10px;
+}
+/* line 40, ../sass/main.scss */
+.song-container .actions .button-confirm-song:visited, .song-container .actions .button-cancel-song:visited, .song-container .actions .button-delete-song:visited, .song-container .actions .button-edit-song:visited {
+  color: inherit;
+}
+/* line 43, ../sass/main.scss */
+.song-container .actions .button-confirm-song:hover, .song-container .actions .button-cancel-song:hover, .song-container .actions .button-delete-song:hover, .song-container .actions .button-edit-song:hover {
+  color: inherit;
+  background-color: #fafafa;
+}

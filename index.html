@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+  <head>
+    <title>Lyrical</title>
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <meta charset="utf-8">
+    <!-- Mustache Templates -->
+    <script id="template-song" type="x-tmpl-mustache">
+    <header>
+      <h2 class="title">{{ title }}</h2>
+      <p class="artist">{{ artist }}</p>
+      <p class="tuning">{{ tuning }}</p>
+      <a href="#" class="button-show-nav">Show Nav</a>
+    </header>
+    <section class="lyrics">
+    </section>
+    <div class="actions">
+      <a href="#" class="button-edit-song">Edit Song</a>
+      <a href="#" class="button-delete-song">Delete Song</a>
+    </div>
+    </script>
+
+    <script id="template-song-list-item" type="x-tmpl-mustache">
+    <a href="#" class="song-link"><span class="artist">{{ artist }}</span> - <span class="title">{{ title }}</span></a>
+    </script>
+
+    <script id="template-song-list" type="x-tmpl-mustache">
+    <header>
+        <h1>Lyrical</h1>
+        <a href="#" class="button-add-song">Add Song</a>
+    </header>
+    <ul></ul>
+    </script>
+
+    <script id="template-add-song" type="x-tmpl-mustache">
+    <header>
+      <h2 class="title" contenteditable="true">Title</h2>
+      <p class="artist" contenteditable="true">Artist</p>
+      <p class="tuning" contenteditable="true">EADGBE</p>
+      <a href="#" class="button-show-nav">Show Nav</a>
+    </header>
+    <section class="lyrics" contenteditable="true">
+      Paste lyrics here.
+    </section>
+    <div class="actions">
+    <a href="#" class="button-cancel-song">Cancel</a>
+    <a href="#" class="button-confirm-song">Done</a>
+    </div>
+    </section>
+    </script>
+
+    <script id="template-song-list-item" type="x-tmpl-mustache">
+    <a href="#" class="song-link"><span class="artist">{{ artist }}</span> - <span class="title">{{ title }}</span></a>
+    </script>
+
+    <script id="template-song-list" type="x-tmpl-mustache">
+    <header>
+        <h1>Lyrical</h1>
+        <a href="#" class="button-add-song">Add Song</a>
+    </header>
+    <ul></ul>
+    </script>
+
+    <script id="template-empty" type="x-tmpl-mustache">
+    <header>
+      <a href="#" class="button-show-nav">Open Nav</a>
+    </header>
+    </section>
+    </script>
+
+
+    <!-- End Mustache Templates -->
+
+
+    <!-- Load Libraries -->
+    <script type="text/javascript" src="scripts/libs/jquery.js"></script>
+    <script type="text/javascript" src="scripts/libs/underscore.js"></script>
+    <script type="text/javascript" src="scripts/libs/mustache.js"></script>
+    <script type="text/javascript" src="scripts/libs/backbone.js"></script>
+    <script type="text/javascript" src="scripts/libs/backbone_localstorage.js"></script>
+
+  </head>
+  <body>
+    <section class="song-list">
+    </section>
+    <section class="song-container">
+    </section>
+    <!-- Load App -->
+    <script type="text/javascript" src="scripts/app.js"></script>
+  </body>
+</html>

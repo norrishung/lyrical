@@ -1,0 +1,216 @@
+@import 'compass/css3';
+@import 'reset';
+
+$font-sans: "Helvetica";
+$font-serif: "Georgia";
+
+* {
+    @include box-sizing(border-box);
+}
+
+@mixin respond-desktop {
+    @media only screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin respond-tablet {
+    @media only screen and (min-width: 500px) {
+        @content;
+    }
+}
+
+@mixin clearfix {
+    &:after {
+        content: "."; 
+        visibility: hidden; 
+        display: block; 
+        height: 0; 
+        clear: both;
+    }
+}
+
+@mixin button {
+    font-family: $font-sans;
+    text-decoration: none;
+    border: 1px solid #555;
+    padding: .3em .5em;
+    text-transform: uppercase;
+    font-size: 1rem;
+    &:visited {
+        color: inherit
+    }
+    &:hover {
+        color: inherit;
+        background-color: #fafafa;
+    }
+}
+
+
+html {
+    font-size: 10px;
+    font-family: $font-sans;
+}
+body {
+    @include display-flex();
+    @include flex-direction(row);
+    @include align-items(stretch);
+    @include transition(transform .2s ease-out);
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    &.nav-open {
+        @include transform(translateX(300px));
+        @include respond-desktop {
+            @include transform(translateX(0px));
+        }
+    }
+}
+
+.song-list, .song-container {
+    padding: 40px;
+    padding-top: 40px;
+}
+
+.song-list {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    @include transform(translateX(-300px));
+    @include respond-desktop {
+        @include display-flex;
+        @include flex(0 0 300px);
+        @include flex-direction(column);
+        z-index: 1;
+        position: static;
+        @include transform(translateX(0px));
+    }
+    width: 300px;
+    background-color: #fafafa;
+    border-right: 1px solid #eee;
+    font-size: 1.2rem;
+    header {
+        @include display-flex;
+        @include align-items(flex-end);
+        @include justify-content(space-between);
+        margin-bottom: 2em;
+        padding-bottom: 2em;
+        border-bottom: 1px solid #555;
+        h1 {
+            @include flex-grow(1);
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .button-add-song {
+            @include button;
+            @include flex-grow(0);
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: #333;
+    }
+    ul {
+        @include flex-grow(1);
+        padding-top: 2em;
+        overflow: auto;
+        li {
+        margin-bottom: 1em;
+        .title {
+            font-weight: 600;
+            }
+        }
+    }
+}
+
+.song-container {
+    width: 100%;
+    @include respond-desktop {
+        @include flex-grow(1);
+    }
+    font-family: $font-serif;
+    font-size: 1.6rem;
+    text-align: center;
+    padding-top: 6em;
+    padding-bottom: 6em;
+    overflow: auto;
+
+    header {
+        overflow: auto;
+        padding-bottom: 2em;
+        margin-bottom: 2em;
+        .button-show-nav {
+            @include button;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+
+            @include respond-desktop {
+                display: none;
+            }
+        }
+    }
+
+    
+
+    h2 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: .5em;
+        font-style: italic;
+    }
+    .artist {
+        font-family: $font-sans;
+        &:before {
+            content: 'By ';
+        }
+        font-size: 1.4rem;
+        margin-bottom: 1em;
+    }
+    .tuning {
+        font-family: $font-sans;
+        text-transform: uppercase;
+        color: #aaa;
+        letter-spacing: .1em;
+        font-weight: 300;
+        font-size: 1.4rem;
+    }
+    .lyrics {
+        p {
+            margin-bottom: .5em;
+        }
+    }
+
+    h2, .artist, .tuning, .lyrics {
+        &[contenteditable="true"] {
+            @include transition(opacity .2s ease-out);
+            opacity: .5;
+            &:focus, &:active {
+                outline: none;
+                border: none;
+                opacity: 1;
+            }
+        }
+    }
+
+    .actions {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        .button-confirm-song, .button-cancel-song, .button-delete-song, .button-edit-song {
+            @include button;
+            float: left;
+            margin-left: 10px;
+        }
+
+    }
+
+}
